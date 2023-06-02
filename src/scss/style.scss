@@ -23,6 +23,15 @@ h1, h2, h3 {
 ul {
     margin: 0;
     list-style: none;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    margin-top: 100px;
 }
 
 picture {
