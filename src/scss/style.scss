@@ -49,10 +49,12 @@ picture {
 
 .button {
     font-weight: 700;
-    padding: 20px;
+    padding: 15px 50px;
     background-color: $color-purple;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: .4s all;
+    transition: .2s all;
+    border: none;
+    color: $color-grey;
     &:hover {
         background-color: $color-purple-dark;
     }

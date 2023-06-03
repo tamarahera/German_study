@@ -1,0 +1,109 @@
+.price {
+    &__wrapper {
+        display: grid;
+        grid-template-columns: auto 630px;
+        grid-template-rows: 60px 640px;
+        gap: 50px 40px;
+    }
+    &__info {
+        grid-row: 1/3;
+        padding: 50px 50px 35px;
+        @include border-left;
+        @include shadow;
+        background-color: $color-grey;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        &-title {
+            font-weight: 700;
+            line-height: 20px;
+        }
+        &-list {
+            list-style: inside;
+            &:nth-child(2){
+                margin-bottom: 20px;
+            }
+        }
+        &-btn {
+            margin-top: auto;
+            width: 100%;
+        }
+    }
+    &__switcher {
+        margin: 0 auto;
+        width: 410px;
+        background-color: $color-grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-btn {
+            width: 170px;
+            padding: 5px 30px;
+            border: none;
+            background-color: $color-grey;
+            transition: .2s all;
+            &--active {
+                background-color: #fff;
+                font-weight: 700;
+            }
+            &:hover {
+                background-color: $color-purple-dark;
+                color: $color-grey;
+            }
+        }
+    }
+    &__offer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 30px;
+        &-item {
+            padding: 20px 0;
+            width: 300px;
+            height: 300px;
+            border-top: 10px solid $color-purple;
+            background-color: $color-grey;
+            @include shadow;
+            display: flex;
+            flex-direction: column;
+        }
+        .subtitle {
+            padding: 0 30px;
+        }
+        &-text {
+            margin-top: 10px;
+            padding: 0 30px;
+        }
+        &-num {
+            padding: 0 30px;
+            margin-top: auto;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 26px;
+            color: $color-purple-dark;
+        }
+    }
+    &__lessons {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 45px;
+        background-color: $color-green;
+        p {
+            padding-left: 30px;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 26px;
+        }
+        &-box {
+            padding-right: 30px;
+            height: 25px;
+        }
+        &-img {
+            height: inherit;
+            vertical-align: unset;
+        }
+    }
+}
