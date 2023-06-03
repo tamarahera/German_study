@@ -1,3 +1,27 @@
 .achievement {
+    padding: 50px;
+    background-color: $color-purple;
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    &__item {
+        padding: 20px;
+        width: 240px;
+        height: 160px;
+        background-color: $color-grey;
+        text-align: center;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 48px;
+        color: $color-green;
+    }
+    &__text {
 
+    }
 }

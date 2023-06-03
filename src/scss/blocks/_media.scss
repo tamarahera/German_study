@@ -85,6 +85,15 @@
             max-height: 60px;
         }
     }
+    .achievement {
+        &__item {
+            height: 130px;
+        }
+        &__title {
+            font-size: 35px;
+            line-height: 35px;
+        }
+    }
 }
 
 @media (max-width: 576px) {
