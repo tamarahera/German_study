@@ -1,0 +1,23 @@
+.learning {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 25px;
+    }
+    &__item {
+        @include border-left;
+        @include shadow;
+        width: 550px;
+        min-height: 320px;
+        padding: 40px;
+        background-color: $color-grey;
+    }
+    &__subtitle {
+        text-transform: uppercase;
+    }
+    &__text {
+        margin-top: 20px;
+    }
+}
