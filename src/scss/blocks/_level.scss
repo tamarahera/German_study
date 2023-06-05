@@ -1,0 +1,67 @@
+.level {
+    &__tabs {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        background-color: $color-grey;
+        height: 115px;
+        width: 100%;
+    }
+    &__tab {
+        &-btn {
+            padding: 10px;
+            height: 100%;
+            width: 100%;
+            background-color: unset;
+            border: 1px solid $color-grey-dark;
+            border-top: 10px solid $color-grey-dark;
+            transition: .2s all;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            &:hover {
+                background-color: #d7d7d7;
+            }
+            &--active {
+                background-color: $color-grey-dark;
+                border: unset;
+                @include border-top;
+                &:hover {
+                    background-color: $color-grey-dark;
+                }
+            }
+        }
+        &-name {
+            color: $color-purple-dark;
+            font-weight: 700;
+            line-height: 20px;
+        }
+        &:nth-child(5) {
+            box-shadow: 3px 4px 4px rgba(0,0,0,.25);
+        }
+    }
+    &__content {
+        position: relative;
+        z-index: 5;
+        height: 350px;
+        padding: 35px;
+        background-color: $color-grey-dark;
+        box-shadow: 3px 4px 4px rgba(0,0,0,.25);
+        display: flex;
+        flex-direction: column;
+        &-text {
+            display: none;
+            &--active {
+                display: block;
+            }
+        }
+        &-list {
+            list-style: inside;
+            list-style-type: circle;
+        }
+        &-btn {
+            margin-top: auto;
+            max-width: 350px;
+        }
+    }
+}
