@@ -1,0 +1,48 @@
+.question {
+    .title {
+        text-align: left;
+    }
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 280px 700px;
+        justify-content: space-between;
+    }
+    &__list {
+        background-color: $color-grey;
+        @include shadow;
+    }
+    &__item {
+        border-bottom: 10px solid $color-green;
+        &:first-child {
+            border-top: 10px solid $color-green;
+        }
+        padding: 40px;
+    }
+    &__btn {
+        background-color: transparent;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        border: none;
+    }
+    &__title {
+        text-align: left;
+    }
+    &__box {
+        transform: rotate(-90deg);
+        width: 15px;
+        &-img {
+            width: inherit;
+            height: auto;
+        }
+    }
+    &__descr {
+        margin-top: 20px;
+        &-list {
+            list-style: inside;
+            list-style-type: decimal;
+        }
+    }
+}
