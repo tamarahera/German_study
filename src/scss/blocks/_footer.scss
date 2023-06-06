@@ -1,3 +1,141 @@
 .footer {
-
+    margin-top: 100px;
+    background-color: $color-black;
+    padding: 70px 150px 30px;
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 250px 150px 150px 250px;
+        justify-content: space-between;
+    }
+    &__contact {
+        &-btn {
+            margin-top: 20px;
+            color: $color-grey;
+            background-color: $color-purple;
+            padding: 5px 50px;
+            font-weight: 700;
+            border: none;
+            transition: .2s all;
+            &:hover {
+                background-color: $color-green;color: $color-black;
+            }
+        }
+        &-list {
+            margin-top: 20px;
+        }
+        &-item {
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        address {
+            color: $color-grey;
+            margin-bottom: 0;
+            line-height: 20px;
+        }
+        &-box {
+            height: 20px;
+        }
+        &-img {
+            height: inherit;
+            vertical-align: unset;
+        }
+        &-link {
+            color: $color-grey;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__title {
+        color: $color-grey;
+        text-transform: uppercase;
+        font-size: 18px;
+        line-height: 22px;
+        height: 50px;
+        font-weight: 700;
+    }
+    &__nav {
+        margin-top: 20px;
+        &-item {
+            margin-top: 5px;
+            color: $color-grey;
+        }
+        &-link {
+            transition: .2s all;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__social {
+        &-link {
+            padding: 10px 10px 10px 45px;
+            width: 240px;
+            background-color: $color-purple;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            transition: .2s all;
+            &:nth-child(2) {
+                margin-top: 20px;
+            }
+            &:nth-child(3) {
+                margin-top: 10px;
+            }
+            &:hover {
+                background-color: $color-green;
+                p {
+                    color: $color-black;
+                } 
+            }
+        }
+        &-box {
+            height: 30px;
+        }
+        &-img {
+            height: inherit;
+        }
+        &-text {
+            color: $color-grey;
+            transition: .2s all;
+        }
+        &-list {
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        &-item {
+            &-link {
+                display: inline-block;
+                height: 25px;
+            }
+            &-img {
+                height: inherit;
+            }
+        }
+    }
+    &__divider {
+        margin: 0 auto;
+        margin-top: 45px;
+        background-color: $color-grey;
+        height: 1px;
+        width: 80%;
+    }
+    &__rights {
+        margin-top: 30px;
+        color: $color-grey;
+        text-align: center;
+    }
+    .logo {
+        margin-top: 50px;
+        &__text {
+            color: $color-grey;
+        }
+    }
 }
