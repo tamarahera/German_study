@@ -36,7 +36,29 @@
 
 <body>
     <header class="header">
-
+        <div class="header__wrapper">
+            <a class="logo">
+                <div class="logo__box">
+                    <img src="icons/logo.svg" alt="logo" class="logo__box-img">
+                </div>
+                <p class="logo__text">die Rede</p>
+            </a>
+            <nav class="header__nav">
+                <button class="header__nav-close" type="button"
+                    data-btn="hamburger-close"><span></span><span></span></button>
+                <ul class="header__list">
+                    <li class="header__item"><a href="#about" class="header__link">About</a></li>
+                    <li class="header__item"><a href="#price" class="header__link">Price</a></li>
+                    <li class="header__item"><a href="#review" class="header__link">Reviews</a></li>
+                    <li class="header__item"><a href="#tutor" class="header__link">Tutors</a></li>
+                    <li class="header__item"><a href="#question" class="header__link">Q&A</a></li>
+                </ul>
+            </nav>
+            <div class="header__overlay"></div>
+            <button class="button header__btn" type="button" data-btn="contact">Contact</button>
+            <button class="hamburger" type="button"
+                data-btn="hamburger-open"><span></span><span></span><span></span></button>
+        </div>
     </header>
     <main>
         <section class="promo">

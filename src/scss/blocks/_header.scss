@@ -1,0 +1,44 @@
+.header {
+    padding: 25px 40px;
+    width: 100%;
+    background-color: $color-grey;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__overlay {
+        display: none;
+    }
+    &__nav {
+        &-close {
+            display: none;
+        }
+    }
+    &__list {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+    &__link {
+        font-weight: 700;
+        cursor: pointer;
+        color: $color-purple-dark;
+        transition: .2s all;
+        width: 64px;
+        display: inline-block;
+        text-align: center;
+        &:hover {
+            color: $color-black;
+            font-size: 20px;
+        }
+    }
+    &__btn {
+        padding: 10px 60px;
+        background-color: $color-purple-dark;
+    }
+}
+.hamburger {
+    display: none;
+}
