@@ -1,0 +1,225 @@
+.modal {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    top: 0px;
+    z-index: 30;
+    &--active {
+        display: flex;
+        animation-name: openModal;
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+    }
+    &__overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 30;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    &__content {
+        padding: 25px 35px 40px;
+        position: relative;
+        z-index: 40;
+        display: flex;
+        flex-direction: column;
+        width: 510px;
+        max-height: 95vh;
+
+        overflow-y: auto;
+        background-color: #F7F7F7;
+        @include border-top;
+        @include shadow;
+    }
+    &__button { 
+        flex-shrink: 0;
+        span {
+            background-color: $color-purple-dark;
+        }
+    }
+    .subtitle {
+        text-align: center;
+        line-height: 25px;
+    }
+    &__descr {
+        text-align: center;
+        margin-top: 10px;
+        color: #888888;
+        line-height: 20px;
+    }
+    &__form {
+        margin-top: 20px;
+    }
+    &__wrapper {
+        position: relative;
+        margin-top: 15px;
+    }
+    &__input {
+        width: 100%;
+        height: 50px;
+        border: 1px solid #C2C2C2;
+        padding: 10px 20px;
+    }
+    &__label {
+        color: #BFBFBF;
+        position: absolute;
+        padding: 0 5px;
+        top: 0px;
+        left: 16px;
+        font-size: 14px;
+        z-index: 45;
+        line-height: 2px;
+        background-color: #f7f7f7;
+    }
+    &__btns {
+        display: flex;
+        margin-top: 40px;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__btn {
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        font-weight: 700;
+        border: none;
+        color: $color-grey;
+        transition: .2s all;
+        &--reset {
+            background-color: #BFBFBF;
+            &:hover {
+                background-color: #afafaf;
+            }
+        }
+        &--submit {
+            background-color: $color-purple-dark;
+            &:hover {
+                background-color: $color-purple;
+            }
+        }
+    }
+    &__select {
+        margin-top: 40px;
+        label {
+            font-style: italic;
+            color: #888888;
+        }
+        select {
+            width: 100%;
+            height: 40px;
+            padding: 5px 10px;
+            border: 1px solid #C2C2C2;
+        }
+    }
+    &__radio {
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns: 15px auto;
+        column-gap: 10px;
+        align-items: center;
+        i {
+            color: #888888;
+            grid-column: 1/3;
+        }
+        input {
+            appearance: none;
+      
+            border: 2px solid #c8c8c8;
+            border-radius: 100%;
+            transition: 0.2s all linear;
+            height: 15px;
+            width: 15px;
+            position: relative;
+            &:checked {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background-color: $color-purple;
+                    height: 9px;
+                    width: 9px;
+                    left: 0; 
+                    right: 0; 
+                    margin-left: auto; 
+                    margin-right: auto; 
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border-radius: 100%;
+                }
+            }
+        }
+        
+    }
+    &__promocode {
+        margin-top: 25px;
+        label {
+            font-style: italic;
+            color: $color-attention;
+        }
+        input {
+            height: 40px;
+            border: 1px solid #C2C2C2;
+            width: 100%;
+        }
+    }
+    &__divider {
+        margin-top: 40px;
+        width: 100%;
+        height: 5px;
+        background-color: $color-green;
+        opacity: 1;
+    }
+    &__calc {
+        margin-top: 25px;
+        color: $color-purple-dark;  
+        &-course {
+            color: inherit;
+        }
+        &-lessons {
+            color: inherit;
+        }
+        &-price {
+            color: inherit;
+        }
+        b {
+            color: inherit;
+        }
+    }
+    &__box {
+        align-self: center;
+        margin: 30px 20px 20px;
+        height: 50px;
+        width: 50px;
+        background-color: $color-purple;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        box-shadow: 
+        #F7F7F7 0px 0px 3px 3px, 
+        $color-green 0px 0px 0px 6px, 
+        #F7F7F7 0px 0px 3px 9px, 
+        $color-attention 0px 0px 0px 12px, 
+        #F7F7F7 0px 0px 3px 15px;
+    }
+    &__promo-code {
+        font-weight: 700;
+        color: $color-attention;
+        user-select: all;
+    }
+}
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}

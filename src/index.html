@@ -907,7 +907,137 @@
         </a>
         <hr class="footer__divider">
         <p class="footer__rights">© 2023 Tamara Herashchenko. All Rights Reserved.</p>
-    </footer> -->
+    </footer>
+
+    <div class="modal" id="modalContact">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="button--close modal__button" data-btn="modal-close" type="button">
+                <span></span>
+                <span></span>
+            </button>
+            <h3 class="subtitle">Do you have a question?</h3>
+            <i class="modal__descr">Send us a request, we will call you back as soon as possible</i>
+            <form action="#" class="modal__form">
+                <div class="modal__wrapper">
+                    <input class="modal__input" type="text" id="modalContactName" name="name">
+                    <label class="modal__label" for="modalContactName">Your name</label>
+                </div>
+                <div class="modal__wrapper">
+                    <input class="modal__input" type="tel" id="modalContactTel" name="tel">
+                    <label class="modal__label" for="modalContactTel">Your number</label>
+                </div>
+                <div class="modal__btns">
+                    <button class="modal__btn modal__btn--reset" type="reset">Reset</button>
+                    <button class="modal__btn modal__btn--submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modalLevel">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="button--close modal__button" data-btn="modal-close" type="button">
+                <span></span>
+                <span></span>
+            </button>
+            <h3 class="subtitle">Do you want to check your <br>
+                German level?</h3>
+            <i class="modal__descr">Send us a request, we will sent a test by mail</i>
+            <form action="#" class="modal__form">
+                <div class="modal__wrapper">
+                    <input class="modal__input" type="text" id="modalLevelName" name="name">
+                    <label class="modal__label" for="modalLevelName">Your name</label>
+                </div>
+                <div class="modal__wrapper">
+                    <input class="modal__input" type="email" id="modalLevelEmail" name="email">
+                    <label class="modal__label" for="modalLevelEmail">Your e-mail</label>
+                </div>
+                <div class="modal__btns">
+                    <button class="modal__btn modal__btn--reset" type="reset">Reset</button>
+                    <button class="modal__btn modal__btn--submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modalOrder">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="button--close modal__button" data-btn="modal-close" type="button">
+                <span></span>
+                <span></span>
+            </button>
+            <h3 class="subtitle">Try our platform now!</h3>
+            <i class="modal__descr">You choose the course and the tutor, we calculate the cost</i>
+            <form action="#" class="modal__form">
+                <div class="modal__wrapper">
+                    <input class="modal__input" type="text" id="modalOrderName" name="name">
+                    <label class="modal__label" for="modalOrderName">Your name</label>
+                </div>
+                <div class="modal__wrapper">
+                    <input class="modal__input" type="email" id="modalOrderEmail" name="email">
+                    <label class="modal__label" for="modalOrderEmail">Your e-mail</label>
+                </div>
+                <div class="modal__wrapper">
+                    <input class="modal__input" type="tel" id="modalOrderTel" name="tel">
+                    <label class="modal__label" for="modalOrderTel">Your number</label>
+                </div>
+
+                <div class="modal__wrapper modal__select">
+                    <label for="modalOrderLessons">How many lessons do you want?</label>
+                    <select name="lessonsAmount" id="modalOrderLessons">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div class="modal__wrapper modal__radio">
+                    <i>What kind of tutor do you need?</i>
+
+                    <input type="radio" id="modalOrderLocal" name="tutor" value="local" checked>
+                    <label for="modalOrderLocal">Local tutor</label>
+
+                    <input type="radio" id="modalOrderNative" name="tutor" value="native">
+                    <label for="modalOrderNative">Native speaker</label>
+                </div>
+                <div class="modal__wrapper modal__promocode">
+                    <label for="modalOrderPromocode">Enter Promo Code</label><br>
+                    <input type="text" id="modalOrderPromocode" name="promocode">
+                </div>
+
+                <hr class="modal__divider">
+
+                <div class="modal__calc">
+                    <b class="modal__calc-course">Minimum course</b>
+                    <p class="modal__calc-lessons"><b>5</b> lessons with a local tutor</p>
+                    <p class="modal__calc-price">Total price: <b>39 €</b></p>
+                </div>
+                <div class="modal__btns">
+                    <button class="modal__btn modal__btn--reset" type="reset">Reset</button>
+                    <button class="modal__btn modal__btn--submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modalGift">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="button--close modal__button" data-btn="modal-close" type="button">
+                <span></span>
+                <span></span>
+            </button>
+            <h3 class="subtitle">We have a gift for you!</h3>
+            <div class="modal__box">
+                <img src="icons/gift-solid.svg" alt="gift" class="modal__box-img">
+            </div>
+            <p class="modal__descr">Enter the promo code <span class="modal__promo-code">MOINMOIN</span> and get the first two lessons for free!</p>
+        </div>
+    </div>
+
 
     <script src='js/script.js'></script>
 </body>
