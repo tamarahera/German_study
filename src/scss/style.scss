@@ -45,11 +45,12 @@ picture {
     height: inherit;
     max-width: inherit;
     max-height: inherit;
+    border-radius: inherit;
 }
 
 .button {
     font-weight: 700;
-    padding: 15px 50px;
+    padding: 15px 70px;
     background-color: $color-purple;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: .2s all;
@@ -57,6 +58,51 @@ picture {
     color: $color-grey;
     &:hover {
         background-color: $color-purple-dark;
+    }
+    &--close {
+        position: relative;
+        height: 30px;
+        width: 30px;
+        border: none;
+        background-color: transparent;
+        margin-left: auto;
+        span {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            &:first-child {
+                transform:  translateY(-50%) rotate(45deg);
+            }
+            &:nth-child(2) {
+                transform:  translateY(-50%) rotate(-45deg);
+            }
+        }
+    }
+}
+
+.gift {
+    position: fixed;
+    padding: 15px 30px;
+    right: 20px;
+    bottom: 20px;
+    background-color: $color-attention;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    z-index: 25;
+    &__text {
+        color: $color-grey;
+    }
+    &__box {
+        height: 20px;
+        width: 20px;
+    }
+    &__img {
+        height: inherit;
+        vertical-align: unset;
     }
 }
 
@@ -76,6 +122,31 @@ picture {
     color: $color-purple-dark;
 }
 
+.logo {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    cursor: pointer;
+    width: 130px;
+    position: relative;
+    z-index: 30;
+    transition: .6s all;
+    &__box {
+        height: 30px;
+        &-img {
+            height: inherit;
+        }
+    }
+    &__text {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+        &--active {
+            color: $color-grey;
+        }
+    }
+}
+
 @import 'blocks/header';
 @import 'blocks/promo';
 @import 'blocks/about';
@@ -90,5 +161,6 @@ picture {
 @import 'blocks/tutor';
 @import 'blocks/question';
 @import 'blocks/footer';
+@import 'blocks/modal';
 
 @import 'blocks/media';
