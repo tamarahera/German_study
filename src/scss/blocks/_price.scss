@@ -16,7 +16,6 @@
         flex-direction: column;
         &-title {
             font-weight: 700;
-            line-height: 20px;
         }
         &-list {
             list-style: inside;
@@ -29,7 +28,7 @@
             width: 100%;
         }
     }
-    &__switcher {
+    &__switch {
         margin: 0 auto;
         width: 410px;
         background-color: $color-grey;
@@ -38,13 +37,14 @@
         align-items: center;
         &-btn {
             width: 170px;
-            padding: 5px 30px;
+            padding: 5px 20px;
             border: none;
             background-color: $color-grey;
-            transition: .2s all;
+            transition: .3s all;
             &--active {
                 background-color: #fff;
                 font-weight: 700;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 1px 1px;            
             }
             &:hover {
                 background-color: $color-purple-dark;

@@ -1,5 +1,6 @@
 import hamburger from "./modules/hamburger";
 
+import switcher from "./modules/switcher";
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
