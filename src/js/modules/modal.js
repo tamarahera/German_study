@@ -1,5 +1,24 @@
 const modal = () => {
     let onceOpenModal = false;
+    const giftBtn = document.querySelector('[data-btn="gift"]');
+    
+    function closeModal(modalItem, activeClass) {
+        modalItem.classList.remove(activeClass);
+        document.body.style.overflow = '';
+        document.body.style.marginRight = `0px`;
+        if (giftBtn) {
+            giftBtn.style.marginRight = `0px`;
+        }
+    }
+
+    function addModal(modalItem, activeClass, scrollNum) {
+        modalItem.classList.add(activeClass);
+        document.body.style.overflow = 'hidden';
+        document.body.style.marginRight = `${scrollNum}px`;
+        if (giftBtn) {
+            giftBtn.style.marginRight = `${scrollNum}px`;
+        }
+    }
 
     function initModal(openSelector, modalSelector, closeSelector, activeClass, overlayClass, deleteBtn = false) {
 
