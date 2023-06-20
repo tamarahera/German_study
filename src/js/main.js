@@ -3,6 +3,8 @@ import accordion from "./modules/accordion";
 import modal from "./modules/modal";
 import tabs from "./modules/tabs";
 import switcher from "./modules/switcher";
+import slider from "./modules/slider";
+import forms from "./modules/forms";
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
