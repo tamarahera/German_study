@@ -5,6 +5,8 @@ import tabs from "./modules/tabs";
 import switcher from "./modules/switcher";
 import slider from "./modules/slider";
 import forms from "./modules/forms";
+import checkTextInput from "./modules/checkTextInput";
+
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
