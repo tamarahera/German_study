@@ -93,6 +93,7 @@ picture {
     align-items: center;
     gap: 20px;
     z-index: 25;
+    transition: background-color .2s;
     &__text {
         color: $color-grey;
     }
@@ -160,6 +161,11 @@ picture {
     &__text {
         font-weight: 700;
     }
+}
+
+.visibility-hidden {
+    visibility: hidden;
+    height: 0;
 }
 
 @keyframes fadeIn {
