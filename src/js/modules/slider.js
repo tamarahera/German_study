@@ -83,7 +83,6 @@ const slider = (slidesSelector, prev, next, activeClassSlide, sliderWrapperSelec
     }
 
     if (multipleSlides === false) {
-        showSlides(slideIndex);
         activateAnimation();
         sliderWrapper.addEventListener('mouseleave', () => {
             activateAnimation();
@@ -93,7 +92,7 @@ const slider = (slidesSelector, prev, next, activeClassSlide, sliderWrapperSelec
         });
     }
 
-    if (multipleSlides === true) {
+    function setSliderByWindowSize() {
         let slideAmount,
             time;
 
@@ -152,6 +151,14 @@ const slider = (slidesSelector, prev, next, activeClassSlide, sliderWrapperSelec
                     return;
                 }
             });
+        });
+    }
+
+    if (multipleSlides === true) {
+        setSliderByWindowSize();
+        window.screen.orientation.addEventListener('change', () => {
+            clearInterval(paused);
+            setSliderByWindowSize();
         });
     }
 }
