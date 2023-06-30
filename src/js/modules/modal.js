@@ -72,7 +72,11 @@ const modal = () => {
             };
         });
 
-
+        window.addEventListener('keydown', (e) => {
+            if (modal.classList.contains(activeClass) && e.key === 'Escape') {
+                closeModal(modal, activeClass);
+            }
+        });
     };
 
     function showModalWithTime(modalSelector, activeClass, time) {
