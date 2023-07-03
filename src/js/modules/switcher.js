@@ -1,11 +1,11 @@
-const switcher = () => {
+const switcher = (switchWrapperSelector, switchBtnsSelector, activeClassBtn, numSelector, activeClassNum) => {
 
-    const switchWrapper = document.querySelector('.price__switch'),
-        switchBtns = document.querySelectorAll('.price__switch-btn'),
+    const switchWrapper = document.querySelector(switchWrapperSelector),
+        switchBtns = document.querySelectorAll(switchBtnsSelector),
         local = [13, 12, 11, 10],
         native = [15, 14, 13, 12];
 
-    let switchContentBlock = Array.from(document.querySelectorAll('.price__offer-num'));
+    let switchContentBlock = Array.from(document.querySelectorAll(numSelector));
 
     switchContentBlock.map((item, i) => {
         return item.textContent = `${local[i]} €`;
@@ -13,22 +13,23 @@ const switcher = () => {
 
     switchWrapper.addEventListener('click', (e) => {
         const target = e.target;
-        console.log(target.getAttribute('data-price-btn') === 'native')
 
-        if (target.getAttribute('data-price-btn') === 'local' && !target.classList.contains('price__switch-btn--active')) {
-            switchBtns.forEach(item => item.classList.remove('price__switch-btn--active'));
-            target.classList.add('price__switch-btn--active');
+        if (target.getAttribute('data-price-btn') === 'local' && !target.classList.contains(activeClassBtn)) {
+            switchBtns.forEach(item => item.classList.remove(activeClassBtn));
+            target.classList.add(activeClassBtn);
 
             switchContentBlock.map((item, i) => {
+                item.classList.toggle(activeClassNum);
                 return item.textContent = `${local[i]} €`;
             });
         } 
         
-        if (target.getAttribute('data-price-btn') === 'native' && !target.classList.contains('price__switch-btn--active')) {
-            switchBtns.forEach(item => item.classList.remove('price__switch-btn--active'));
-            target.classList.add('price__switch-btn--active');
+        if (target.getAttribute('data-price-btn') === 'native' && !target.classList.contains(activeClassBtn)) {
+            switchBtns.forEach(item => item.classList.remove(activeClassBtn));
+            target.classList.add(activeClassBtn);
 
             switchContentBlock.map((item, i) => {
+                item.classList.toggle(activeClassNum);
                 return item.textContent = `${native[i]} €`;
             });
         }
