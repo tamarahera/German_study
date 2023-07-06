@@ -84,6 +84,7 @@
         }
         &-img {
             height: inherit;
+            width: auto;
             vertical-align: top;
         }
     }
@@ -102,5 +103,7 @@
         margin-top: 50px;
         display: block;
         padding: 15px 65px;
+        max-width: 350px;
+        width: 100%;
     }
 }

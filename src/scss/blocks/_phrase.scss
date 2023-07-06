@@ -12,22 +12,43 @@
         justify-content: center;
         align-items: center;
         gap: 30px;
+        overflow: hidden;
     }
     &__item {
         display: none;
+        height: 130px;
+        width: 260px;
         &--active {
             display: block;
         }
-        &-btn {        
-            font-weight: 700;
-            font-size: 40px;
+        &-link {        
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             height: 100%;
             background-color: $color-grey;
-            text-transform: uppercase;
             border: none;
-            padding: 40px;
             @include shadow;
+        }
+        &-text {
+            font-weight: 700;
+            font-size: 40px;
+            text-transform: uppercase;
+            display: none;
+            padding: 40px;
+            &--active {
+                display: block;
+            }
+        }
+        &-img {
+            display: none;
+            height: inherit;
+            width: inherit;
+            object-fit: cover;
+            &--active {
+                display: block;
+            }
         }
     }
     &__buttons {

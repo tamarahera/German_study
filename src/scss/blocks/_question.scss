@@ -19,13 +19,17 @@
         padding: 40px;
     }
     &__btn {
-        background-color: transparent;
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 20px;
-        border: none;
+        cursor: pointer;
+        &--active {
+            .question__box {
+                transform: rotate(90deg);
+            }
+        }
     }
     &__title {
         text-align: left;
@@ -33,16 +37,25 @@
     &__box {
         transform: rotate(-90deg);
         width: 15px;
+        transition: .2s all;
         &-img {
             width: inherit;
             height: auto;
         }
     }
     &__descr {
-        margin-top: 20px;
+        max-height: 0;
+        transition: .2s all;
+        opacity: 0;
+        overflow: hidden;
         &-list {
             list-style: inside;
             list-style-type: decimal;
+        }
+        &--active {
+            opacity: 1;
+            overflow: visible;
+            margin-top: 20px;
         }
     }
 }

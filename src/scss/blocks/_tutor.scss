@@ -17,9 +17,11 @@
         }
     }
     &__slides {
+        overflow: hidden;
+        width: 100%;
+        max-width: 500px;
     }
     &__slide {
-        max-width: 500px;
         min-height: 490px;
         @include border-top;
         @include shadow;
@@ -89,5 +91,7 @@
         display: block;
         margin: 0 auto;
         margin-top: 50px;
+        max-width: 350px;
+        width: 100%;
     }
 }
