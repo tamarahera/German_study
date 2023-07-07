@@ -3,7 +3,7 @@ const calc = (lessons, tutor, promocode, result, promocodeSuccess) => {
         tutorBlocks = Array.from(document.querySelectorAll(tutor)),
         promocodeBlock = document.querySelector(promocode),
         resultBlock = document.querySelector(result),
-        promocodeMessage = document.querySelector(promocodeSuccess)
+        promocodeMessage = document.querySelector(promocodeSuccess);
 
     let sum = 0;
 
@@ -40,15 +40,15 @@ const calc = (lessons, tutor, promocode, result, promocodeSuccess) => {
         if (lessonsBlock == '' || tutorBlocks == '') {
             resultBlock.textContent = 'Please, choose an amount of lessons and a tutor';
             return;
-        } 
-        
+        }
+
         if (promocodeBlock.value === 'MOINMOIN') {
             sum = Math.round(sum - (hourPrice * 2));
             promocodeMessage.classList.add('modal__promocode-text--active');
         } else {
             promocodeMessage.classList.remove('modal__promocode-text--active');
         }
-        
+
         resultBlock.innerHTML = `
             <b class="modal__calc-course">${courseName}</b>
             <p class="modal__calc-lessons"><b>${+lessonsBlock.value}</b> lessons with a ${tutorBlock.value} tutor</p>
