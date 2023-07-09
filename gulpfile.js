@@ -10,25 +10,38 @@ const clean = require('gulp-clean');
 const avif = require('gulp-avif');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
+const mozjpeg = require('imagemin-mozjpeg');
 const newer = require('gulp-newer');
 const htmlmin = require('gulp-htmlmin');
 const webpack = require("webpack-stream");
 
 function images() {
-    return src(['src/images/*.*', '!src/images/*.svg', '!src/images/meta.*'])
+    return src(['src/images/about.*', '!src/images/*.svg', '!src/images/meta.*'])
         .pipe(newer('dist/images'))
         .pipe(avif({ quality : 30}))
 
         .pipe(newer('dist/images'))
-        .pipe(src(['src/images/*.*', '!src/images/meta.*']))
+        .pipe(src(['src/images/about.*', '!src/images/meta.*']))
         .pipe(webp())
 
         .pipe(newer('dist/images'))
-        .pipe(src(['src/images/*.*', '!src/images/meta.*']))
+        .pipe(src('src/images/about.*'))
         .pipe(imagemin())
 
-        .pipe(src('src/images/meta.*'))
-        .pipe(imagemin())
+        .pipe(newer('dist/images'))
+        .pipe(src('src/images/*/*-mini.*'))
+        .pipe(imagemin([
+            mozjpeg({quality: 5}),
+         ]))
+
+         .pipe(newer('dist/images'))
+         .pipe(src(['src/images/*/*.*', '!src/images/*/*-mini.*']))
+         .pipe(imagemin([
+             mozjpeg({quality: 30}),
+          ]))
+
+          .pipe(newer('dist/images'))
+          .pipe(src(['src/images/*.*', '!src/images/about.*']))
 
         .pipe(dest('dist/images'))
 }
@@ -116,6 +129,10 @@ function buildJs() {
 function php() {
     return src('src/*.php')
     .pipe(dest('dist/'))
+
+    .pipe(src('src/*.json'))
+    .pipe(dest('dist/'))
+
     .pipe(browserSync.stream())
 }
 
