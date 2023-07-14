@@ -342,13 +342,17 @@ const modal = () => {
   const giftBtn = document.querySelector('[data-btn="gift"]');
   function closeModal(modalItem, activeClass) {
     modalItem.classList.remove(activeClass);
-    document.body.style.overflow = '';
-    document.body.style.marginRight = `0px`;
-    if (giftBtn) {
-      giftBtn.style.marginRight = `0px`;
-    }
+    setTimeout(() => {
+      modalItem.style.display = 'none';
+      document.body.style.overflow = '';
+      document.body.style.marginRight = `0px`;
+      if (giftBtn) {
+        giftBtn.style.marginRight = `0px`;
+      }
+    }, 400);
   }
   function openModal(modalItem, activeClass, scrollNum) {
+    modalItem.style.display = 'flex';
     modalItem.classList.add(activeClass);
     document.body.style.overflow = 'hidden';
     document.body.style.marginRight = `${scrollNum}px`;
