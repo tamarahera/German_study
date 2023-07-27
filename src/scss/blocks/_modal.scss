@@ -272,5 +272,21 @@
             display: flex;
         }
     }
+    &__policy {
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        label {
+            font-size: 14px;
+        }
+        &-checkbox {
+            margin-right: 8px;
+        }
+        &-link {
+            text-decoration: underline;
+            color: $color-purple-dark;
+            font-size: inherit;
+        }
+    }
 }
 
