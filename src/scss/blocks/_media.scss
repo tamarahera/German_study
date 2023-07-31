@@ -532,5 +532,11 @@
             padding: 10px;
         }
     }
+    .cookie {
+        &__content {
+            margin-top: 20px;
+            grid-template-columns: 50px auto;
+        }
+    }
 }
 
