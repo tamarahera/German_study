@@ -10,10 +10,12 @@ import showMoreReviews from "./modules/showMoreReviews";
 import calc from "./modules/calc"
 import showPhotos from "./modules/showPhotos";
 import mask from "./modules/mask";
+import cookie from "./modules/cookie";
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
+    cookie();
     hamburger('[data-btn="hamburger-open"]', '[data-btn="hamburger-close"]', '.header__nav', '.header .logo .logo__text', 'header__nav--active', 'logo__text--active', 'header__overlay');
     accordion('.question__btn', 'question__btn--active', 'question__descr--active');
     modal();

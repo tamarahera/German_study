@@ -24,16 +24,23 @@ const modal = () => {
         }
     }
 
-    function initModal(modalSelector, activeClass, overlayClass, openSelector, closeSelector = false, deleteBtn = false, openImg = false) {
+    function initModal(modalSelector, activeClass, overlayClass, openSelector = false, closeSelector = false, deleteBtn = false, openImg = false) {
 
         const modal = document.querySelector(modalSelector),
             modals = document.querySelectorAll('.modal'),
             openBtns = document.querySelectorAll(openSelector),
             scroll = calculateScroll();
 
+
         modals.forEach(item => {
-            closeModal(item, activeClass);
+            if (openSelector == true) {
+                closeModal(item, activeClass);
+            }
         });
+
+        if ((!document.cookie || document.cookie.match(/false/ig)) && modalSelector === '#modalCookie') {
+            openModal(modal, activeClass, scroll);
+        } //якщо кукі не існують або вони false, показуємо модальне вікно з кукі при запуску
 
         openBtns.forEach(item => {
             item.addEventListener('click', (e) => {
@@ -63,13 +70,15 @@ const modal = () => {
         });
 
         try {
-            const closeBtn = document.querySelector(closeSelector);
+            const closeBtns = document.querySelectorAll(closeSelector);
 
-            closeBtn.addEventListener('click', () => {
-                closeModal(modal, activeClass);
+            closeBtns.forEach(item => {
+                item.addEventListener('click', () => {
+                    closeModal(modal, activeClass);
+                });
             });
-        } catch {}
-      
+        } catch { }
+
         modal.addEventListener('click', (e) => {
             if (e.target.classList.contains(overlayClass)) {
                 closeModal(modal, activeClass);
@@ -135,12 +144,44 @@ const modal = () => {
     window.addEventListener('scroll', initScroll);
 
 
-    initModal('#modalContact', 'modal--active', 'modal__overlay', '[data-btn="contact"]', '#modalContact [data-btn="modal-close"]');
-    initModal('#modalLevel', 'modal--active', 'modal__overlay', '[data-btn="level"]',);
-    initModal('#modalOrder', 'modal--active', 'modal__overlay', '[data-btn="order"]', '#modalLevel [data-btn="modal-close"]');
-    initModal('#modalGift', 'modal--active', 'modal__overlay', '[data-btn="gift"]', '#modalGift [data-btn="modal-close"]', true);
-    initModal('#modalImg', 'modal--active', 'modal__overlay', '.phrase__item-link', false, false, true);
+    initModal('#modalContact',
+        'modal--active',
+        'modal__overlay',
+        '[data-btn="contact"]',
+        '#modalContact [data-btn="modal-close"]');
+    initModal('#modalLevel',
+        'modal--active',
+        'modal__overlay',
+        '[data-btn="level"]');
+    initModal('#modalOrder',
+        'modal--active',
+        'modal__overlay', '[data-btn="order"]',
+        '#modalLevel [data-btn="modal-close"]');
+    initModal('#modalGift',
+        'modal--active',
+        'modal__overlay',
+        '[data-btn="gift"]',
+        '#modalGift [data-btn="modal-close"]',
+        true);
+    initModal('#modalImg',
+        'modal--active',
+        'modal__overlay',
+        '.phrase__item-link',
+        false,
+        false,
+        true);
 
+    initModal('#modalCookie',
+        'modal--active',
+        'modal__overlay',
+        false,
+        '#modalCookie .modal__btn');
+
+    /*     const cookie = document.querySelector('#modalCookie');
+        console.log(cookie)
+        setTimeout(() => {
+            cookie.style.cssText = `display:flex;opacity:1;animation-name:none;`
+        }, 1000); */
 };
 
 export default modal;

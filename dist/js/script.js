@@ -123,6 +123,49 @@ const checkTextInput = inputsSelector => {
 
 /***/ }),
 
+/***/ "./src/js/modules/cookie.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/cookie.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const cookie = () => {
+  const cookieStorage = {
+    // створ свій об'єкт з методами по типу localStorage
+    getItem: key => {
+      const cookies = document.cookie.split(';').map(item => item.split('=')).reduce((acc, _ref) => {
+        let [key, value] = _ref;
+        return {
+          ...acc,
+          [key.trim()]: value
+        };
+      }, {});
+      return cookies[key];
+    },
+    setItem: (key, value) => {
+      document.cookie = `${key}=${value};expires=Sun, 17 Jun 2050 06:12:51 GTM`;
+    }
+  };
+  const storageType = cookieStorage;
+  const consentPropertyType = 'site_consent';
+  const toggleStorage = prop => {
+    // зберігаємо згоду юзера
+    storageType.setItem(consentPropertyType, prop);
+  };
+  const btnCancel = document.querySelector('[data-btn="cookie-reject"]');
+  const btnAccept = document.querySelector('[data-btn="cookie-accept"]');
+  btnAccept.addEventListener('click', () => {
+    toggleStorage(true);
+  });
+  btnCancel.addEventListener('click', () => {
+    toggleStorage(false);
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (cookie);
+
+/***/ }),
+
 /***/ "./src/js/modules/forms.js":
 /*!*********************************!*\
   !*** ./src/js/modules/forms.js ***!
@@ -360,7 +403,8 @@ const modal = () => {
       giftBtn.style.marginRight = `${scrollNum}px`;
     }
   }
-  function initModal(modalSelector, activeClass, overlayClass, openSelector) {
+  function initModal(modalSelector, activeClass, overlayClass) {
+    let openSelector = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
     let closeSelector = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
     let deleteBtn = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
     let openImg = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
@@ -369,8 +413,14 @@ const modal = () => {
       openBtns = document.querySelectorAll(openSelector),
       scroll = calculateScroll();
     modals.forEach(item => {
-      closeModal(item, activeClass);
+      if (openSelector == true) {
+        closeModal(item, activeClass);
+      }
     });
+    if ((!document.cookie || document.cookie.match(/false/ig)) && modalSelector === '#modalCookie') {
+      openModal(modal, activeClass, scroll);
+    } //якщо кукі не існують або вони false, показуємо модальне вікно з кукі при запуску
+
     openBtns.forEach(item => {
       item.addEventListener('click', e => {
         onceOpenModal = true;
@@ -394,9 +444,11 @@ const modal = () => {
       });
     });
     try {
-      const closeBtn = document.querySelector(closeSelector);
-      closeBtn.addEventListener('click', () => {
-        closeModal(modal, activeClass);
+      const closeBtns = document.querySelectorAll(closeSelector);
+      closeBtns.forEach(item => {
+        item.addEventListener('click', () => {
+          closeModal(modal, activeClass);
+        });
       });
     } catch {}
     modal.addEventListener('click', e => {
@@ -461,7 +513,15 @@ const modal = () => {
   initModal('#modalOrder', 'modal--active', 'modal__overlay', '[data-btn="order"]', '#modalLevel [data-btn="modal-close"]');
   initModal('#modalGift', 'modal--active', 'modal__overlay', '[data-btn="gift"]', '#modalGift [data-btn="modal-close"]', true);
   initModal('#modalImg', 'modal--active', 'modal__overlay', '.phrase__item-link', false, false, true);
+  initModal('#modalCookie', 'modal--active', 'modal__overlay', false, '#modalCookie .modal__btn');
+
+  /*     const cookie = document.querySelector('#modalCookie');
+      console.log(cookie)
+      setTimeout(() => {
+          cookie.style.cssText = `display:flex;opacity:1;animation-name:none;`
+      }, 1000); */
 };
+
 /* harmony default export */ __webpack_exports__["default"] = (modal);
 
 /***/ }),
@@ -910,6 +970,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_showPhotos__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/showPhotos */ "./src/js/modules/showPhotos.js");
 /* harmony import */ var _modules_mask__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/mask */ "./src/js/modules/mask.js");
+/* harmony import */ var _modules_cookie__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/cookie */ "./src/js/modules/cookie.js");
+
 
 
 
@@ -925,6 +987,7 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  (0,_modules_cookie__WEBPACK_IMPORTED_MODULE_12__["default"])();
   (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-btn="hamburger-open"]', '[data-btn="hamburger-close"]', '.header__nav', '.header .logo .logo__text', 'header__nav--active', 'logo__text--active', 'header__overlay');
   (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_1__["default"])('.question__btn', 'question__btn--active', 'question__descr--active');
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])();
