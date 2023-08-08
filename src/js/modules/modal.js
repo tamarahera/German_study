@@ -92,7 +92,7 @@ const modal = () => {
         });
     };
 
-    function showModalWithTime(modalSelector, activeClass, time) {
+    function showModalWithTime(btnSelector, time) {
         setTimeout(() => {
             const modals = document.querySelectorAll('.modal'),
                 modalsDisplay = Array.from(modals).some((item) => {
@@ -100,14 +100,12 @@ const modal = () => {
                 });
 
             if (!modalsDisplay) {
-                document.querySelector(modalSelector).classList.add(activeClass);
-                document.body.style.overflow = 'hidden';
-                document.body.style.marginRight = `${scroll}px`;
+                document.querySelector(btnSelector).click();
             }
         }, time);
     };
 
-    showModalWithTime('#modalLevel', 'modal--active', 60000);
+    showModalWithTime('[data-btn="level"]', 60000);
 
     function calculateScroll() {
         let block = document.createElement('div');
@@ -175,13 +173,7 @@ const modal = () => {
         'modal--active',
         'modal__overlay',
         false,
-        '#modalCookie .modal__btn');
-
-    /*     const cookie = document.querySelector('#modalCookie');
-        console.log(cookie)
-        setTimeout(() => {
-            cookie.style.cssText = `display:flex;opacity:1;animation-name:none;`
-        }, 1000); */
+        '#modalCookie [data-btn="modal-close"]');
 };
 
 export default modal;

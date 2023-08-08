@@ -464,21 +464,19 @@ const modal = () => {
     });
   }
   ;
-  function showModalWithTime(modalSelector, activeClass, time) {
+  function showModalWithTime(btnSelector, time) {
     setTimeout(() => {
       const modals = document.querySelectorAll('.modal'),
         modalsDisplay = Array.from(modals).some(item => {
           return item.classList.contains('modal--active');
         });
       if (!modalsDisplay) {
-        document.querySelector(modalSelector).classList.add(activeClass);
-        document.body.style.overflow = 'hidden';
-        document.body.style.marginRight = `${scroll}px`;
+        document.querySelector(btnSelector).click();
       }
     }, time);
   }
   ;
-  showModalWithTime('#modalLevel', 'modal--active', 60000);
+  showModalWithTime('[data-btn="level"]', 60000);
   function calculateScroll() {
     let block = document.createElement('div');
     block.style.width = '100px';
@@ -513,15 +511,8 @@ const modal = () => {
   initModal('#modalOrder', 'modal--active', 'modal__overlay', '[data-btn="order"]', '#modalLevel [data-btn="modal-close"]');
   initModal('#modalGift', 'modal--active', 'modal__overlay', '[data-btn="gift"]', '#modalGift [data-btn="modal-close"]', true);
   initModal('#modalImg', 'modal--active', 'modal__overlay', '.phrase__item-link', false, false, true);
-  initModal('#modalCookie', 'modal--active', 'modal__overlay', false, '#modalCookie .modal__btn');
-
-  /*     const cookie = document.querySelector('#modalCookie');
-      console.log(cookie)
-      setTimeout(() => {
-          cookie.style.cssText = `display:flex;opacity:1;animation-name:none;`
-      }, 1000); */
+  initModal('#modalCookie', 'modal--active', 'modal__overlay', false, '#modalCookie [data-btn="modal-close"]');
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (modal);
 
 /***/ }),
