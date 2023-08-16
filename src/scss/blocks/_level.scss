@@ -29,11 +29,11 @@
                 background-color: $color-grey-dark;
             }
         }
-        
         &-name {
             color: $color-purple-dark;
             font-weight: 700;
             line-height: 20px;
+            text-align: center;
         }
         &:nth-child(5) {
             box-shadow: 3px 4px 4px rgba(0,0,0,.25);

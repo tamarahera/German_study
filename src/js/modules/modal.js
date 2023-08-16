@@ -150,11 +150,12 @@ const modal = () => {
     initModal('#modalLevel',
         'modal--active',
         'modal__overlay',
-        '[data-btn="level"]');
+        '[data-btn="level"]',
+        '#modalLevel [data-btn="modal-close"]');
     initModal('#modalOrder',
         'modal--active',
         'modal__overlay', '[data-btn="order"]',
-        '#modalLevel [data-btn="modal-close"]');
+        '#modalOrder [data-btn="modal-close"]');
     initModal('#modalGift',
         'modal--active',
         'modal__overlay',

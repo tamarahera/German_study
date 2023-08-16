@@ -56,7 +56,6 @@ const forms = () => {
             textMessage.classList.add('status__text');
             statusMessage.appendChild(textMessage);
 
-
             const formData = new FormData(item); // або JSON
 
             let api;

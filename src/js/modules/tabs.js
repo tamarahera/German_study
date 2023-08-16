@@ -34,6 +34,20 @@ const tabs = (parentSelector, tabSelector, contentSelector, activeClassTab, acti
             });
         };
     });
+
+    parent.addEventListener('keydown', (e) => {
+        const target = e.target;
+
+        if ((target.classList.contains(tabSelector.replace(/\./, '')) || target.parentNode.classList.contains(tabSelector.replace(/\./, ''))) && (!target.classList.contains(activeClassTab) && target) && e.key === 'Enter') {
+            tabs.forEach((item, i) => {
+                if (item === target || item === target.parentNode) { 
+                    // parentNode для того, щоб дочірні ел посилались на головний таргет
+                    hideContent();
+                    showContent(i);
+                }
+            });
+        };
+    });
 };
 
 export default tabs;
