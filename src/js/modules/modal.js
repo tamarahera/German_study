@@ -24,13 +24,18 @@ const modal = () => {
         }
     }
 
-    function initModal(modalSelector, activeClass, overlayClass, openSelector = false, closeSelector = false, deleteBtn = false, openImg = false) {
+    function initModal( modalSelector, 
+                        activeClass, 
+                        overlayClass, 
+                        openSelector = false, 
+                        closeSelector = false, 
+                        deleteBtn = false, 
+                        openImg = false) {
 
         const modal = document.querySelector(modalSelector),
             modals = document.querySelectorAll('.modal'),
             openBtns = document.querySelectorAll(openSelector),
             scroll = calculateScroll();
-
 
         modals.forEach(item => {
             if (openSelector == true) {
@@ -154,7 +159,8 @@ const modal = () => {
         '#modalLevel [data-btn="modal-close"]');
     initModal('#modalOrder',
         'modal--active',
-        'modal__overlay', '[data-btn="order"]',
+        'modal__overlay', 
+        '[data-btn="order"]',
         '#modalOrder [data-btn="modal-close"]');
     initModal('#modalGift',
         'modal--active',

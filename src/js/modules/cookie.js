@@ -14,20 +14,22 @@ const cookie = () => {
     }
 
     const storageType = cookieStorage;
-    const consentPropertyType = 'site_consent';
+    const consentPropertyType = 'rede_cookie';
   
     const toggleStorage = (prop) => { // зберігаємо згоду юзера
         storageType.setItem(consentPropertyType, prop);
     }
 
-    const btnCancel = document.querySelector('[data-btn="cookie-reject"]');
-    const btnAccept = document.querySelector('[data-btn="cookie-accept"]');
+    const btnCancel = document.querySelector('[data-cookie="reject"]');
+    const btnAccept = document.querySelector('[data-cookie="accept"]');
 
-    btnAccept.addEventListener('click', () => {
+    btnAccept.addEventListener('click', (e) => {
+        console.log(e)
         toggleStorage(true);
     });
 
-    btnCancel.addEventListener('click', () => {
+    btnCancel.addEventListener('click', (e) => {
+        console.log(e)
         toggleStorage(false);
     });
 
