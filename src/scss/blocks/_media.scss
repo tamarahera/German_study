@@ -179,14 +179,14 @@
             left: -100%;
             width: 100%;
             height: 100vh;
-            z-index: 15;
+            z-index: 50;
             background-color: rgba(0, 0, 0, 0.3);
             transition: .2s all;
         }
         &__nav {
             background-color: $color-purple-dark;
             position: absolute;
-            z-index: 20;
+            z-index: 100;
             top: 0;
             left: -100%;
             height: 100vh;

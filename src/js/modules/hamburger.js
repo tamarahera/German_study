@@ -11,12 +11,13 @@ const hamburger = (btnOpen, btnClose, menuClass, logoText, headerActiveClass, lo
     function openMenu() {
         menu.classList.add(headerActiveClass);
         logo.classList.add(logoActiveClass);
+        document.body.style.overflow = 'hidden';
     }
     function closeMenu() {
         menu.classList.remove(headerActiveClass);
         logo.classList.remove(logoActiveClass);
+        document.body.style.overflow = '';
     }
-
 
     hamburgerBtnOpen.addEventListener('click', () => {
         if (!menu.classList.contains(headerActiveClass)) {
@@ -29,8 +30,15 @@ const hamburger = (btnOpen, btnClose, menuClass, logoText, headerActiveClass, lo
             closeMenu();
         }
     });
+
     menu.parentElement.addEventListener('click', (e) => {
         if (e.target.tagName === 'A' && menu.classList.contains(headerActiveClass) || e.target.classList.contains(overlayClass)) {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (menu.classList.contains(headerActiveClass) && e.key === 'Escape') {
             closeMenu();
         }
     });
